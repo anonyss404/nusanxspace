@@ -20,7 +20,7 @@ class InfoCommands:
                     self.bot.reply_to(message, f"Terminal {device_id} nggak ditemukan!")
                     return
                 ip = terminal[6] if len(terminal) > 6 else "Unknown"
-                self.bot.reply_to(message, f"IP Terminal {device_id}: {ip}")
+                self.bot.reply_to(message, f"📡 IP Terminal {device_id}: {ip}")
             except Exception as e:
                 self.bot.reply_to(message, f"Error: {str(e)}")
         
@@ -40,9 +40,9 @@ class InfoCommands:
                 try:
                     loc_data = json.loads(location)
                     maps_link = f"https://www.google.com/maps?q={loc_data.get('lat',0)},{loc_data.get('lon',0)}"
-                    self.bot.reply_to(message, f"Lokasi {device_id}:\n{loc_data}\n\nGoogle Maps: {maps_link}")
+                    self.bot.reply_to(message, f"📍 Lokasi {device_id}:\n{loc_data}\n\nGoogle Maps: {maps_link}")
                 except:
-                    self.bot.reply_to(message, f"Lokasi {device_id}: {location}")
+                    self.bot.reply_to(message, f"📍 Lokasi {device_id}: {location}")
             except Exception as e:
                 self.bot.reply_to(message, f"Error: {str(e)}")
         
@@ -69,7 +69,7 @@ class InfoCommands:
 ║ Baterai   : {terminal[5]}%
 ║ IP        : {terminal[6]}
 ║ Last Seen : {terminal[8]}
-║ Status    : {'TERKUNCI 🔒' if terminal[9] == 1 else 'BEBAS 🔓'}
+║ Status    : {'🔒 TERKUNCI' if terminal[9] == 1 else '🔓 BEBAS'}
 ╚══════════════════════════════╝
                 """
                 self.bot.reply_to(message, info)
