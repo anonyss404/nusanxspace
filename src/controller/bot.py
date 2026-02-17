@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-import telebot
-from telebot import types
-import time
-import os
 import sys
+import os
+import time
 from datetime import datetime
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, BASE_DIR)
+
+import telebot
+from telebot import types
 
 from src.controller.config import Config
 from src.controller.database.manager import DatabaseManager
@@ -63,7 +65,7 @@ oMMMMMMMMMMM.      oMMMMWWN;   KM0  MMMW.
          xMMMMMMMW     KMMMN    kWMMMMMMMMMMMMMMMMMMMMMMMWO
          lMMMMMMMo    .MMMMo    WMMMMMMMMMMMMMMMMMMMMMMMMMM
            MMMMM       KMMN      MMMMMMMMMMMMMMMMMMMMMMMMW
-                        .,        .WMMMMMMMMMMMMMMMMMMMM.
+                        .,        .WMMMMMMMMMMMMMMMMMMMM
 """
 
 @bot.message_handler(commands=['start'])
@@ -108,12 +110,24 @@ def callback_handler(call):
         markup.add(btn1, btn2, btn3)
         bot.edit_message_text("Pilih opsi lock:", call.message.chat.id, call.message.message_id, reply_markup=markup)
     
+    elif call.data == 'lock_term':
+        bot.send_message(call.message.chat.id, "Gunakan command: /lock_terminal,device_id,password")
+    
+    elif call.data == 'unlock_term':
+        bot.send_message(call.message.chat.id, "Gunakan command: /unlock_terminal device_id")
+    
+    elif call.data == 'loc_menu':
+        bot.send_message(call.message.chat.id, "Gunakan command: /get_location device_id")
+    
+    elif call.data == 'status':
+        terminals = db.get_all_terminals()
+        bot.send_message(call.message.chat.id, f"Total terminal: {len(terminals)}")
+    
+    elif call.data == 'refresh':
+        bot.send_message(call.message.chat.id, "🔄 Refreshed!")
+    
     elif call.data == 'delete_menu':
-        markup = types.InlineKeyboardMarkup()
-        btn1 = types.InlineKeyboardButton('Hapus Terminal', callback_data='delete_term')
-        btn2 = types.InlineKeyboardButton('Back', callback_data='back')
-        markup.add(btn1, btn2)
-        bot.edit_message_text("Pilih terminal yang mau dihapus:", call.message.chat.id, call.message.message_id, reply_markup=markup)
+        bot.send_message(call.message.chat.id, "Gunakan command: /delete_terminal device_id")
     
     elif call.data == 'back':
         markup = types.InlineKeyboardMarkup(row_width=2)
