@@ -4,8 +4,7 @@ import json
 from datetime import datetime
 
 class DatabaseManager:
-    def __init__(self, db_path='data/terminals.db'):
-        os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    def __init__(self, db_path='terminals.db'):
         self.conn = sqlite3.connect(db_path, check_same_thread=False)
         self.c = self.conn.cursor()
         self.create_tables()
