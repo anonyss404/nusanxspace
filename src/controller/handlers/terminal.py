@@ -1,6 +1,3 @@
-import re
-from datetime import datetime
-
 class TerminalCommands:
     def __init__(self, bot, db):
         self.bot = bot
@@ -21,7 +18,7 @@ class TerminalCommands:
                 if not terminal:
                     self.bot.reply_to(message, f"Terminal {device_id} nggak ditemukan!")
                     return
-                self.db.update_terminal(device_id, is_locked=1, lock_password=password)
+                self.db.update_terminal(device_id, is_locked=1)
                 self.bot.reply_to(message, f"Terminal {device_id} terkunci! 🔒")
             except Exception as e:
                 self.bot.reply_to(message, f"Error: {str(e)}")
@@ -38,7 +35,7 @@ class TerminalCommands:
                 if not terminal:
                     self.bot.reply_to(message, f"Terminal {device_id} nggak ditemukan!")
                     return
-                self.db.update_terminal(device_id, is_locked=0, lock_password='')
+                self.db.update_terminal(device_id, is_locked=0)
                 self.bot.reply_to(message, f"Terminal {device_id} terbuka! 🔓")
             except Exception as e:
                 self.bot.reply_to(message, f"Error: {str(e)}")
